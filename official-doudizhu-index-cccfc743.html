@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斗地主 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f5f0;
+            color: #2d2a26;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans SC", sans-serif;
+            line-height: 1.7;
+            padding: 2.4rem 1.2rem;
+        }
+
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* hero 模块 — 留白 + 小字号标题 */
+        .hero {
+            margin-bottom: 3.6rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #d9d3cb;
+        }
+
+        .hero .label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8f8579;
+            background: #ece7e0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            color: #1f1b17;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #6f6457;
+            border-left: 3px solid #b3a799;
+            padding-left: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        /* 背景说明卡片 — 极简浅灰底 */
+        .backdrop {
+            background: #efebe6;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 3.2rem;
+            border-radius: 2px;
+        }
+
+        .backdrop h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #3d352e;
+            margin-bottom: 0.9rem;
+        }
+
+        .backdrop p {
+            font-size: 0.95rem;
+            color: #4c423b;
+        }
+
+        /* 三段式自然介绍 */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            margin-bottom: 3.2rem;
+        }
+
+        .intro-item {
+            border-left: 1px solid #ddd6cd;
+            padding-left: 1.2rem;
+        }
+
+        .intro-item .num {
+            font-size: 0.75rem;
+            color: #a89b8e;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .intro-item h3 {
+            font-size: 1.1rem;
+            font-weight: 450;
+            color: #2d2721;
+            margin-bottom: 0.6rem;
+        }
+
+        .intro-item p {
+            font-size: 0.94rem;
+            color: #4e443c;
+        }
+
+        /* 提示 / FAQ 摘要混合 */
+        .note-area {
+            background: #ffffff;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e3ddd4;
+            border-radius: 1px;
+        }
+
+        .note-area .note-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #6f6457;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .note-area .note-title span {
+            background: #ddd6cd;
+            width: 1.8rem;
+            height: 1px;
+        }
+
+        .note-area .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .note-area .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-area .q {
+            font-weight: 450;
+            font-size: 0.95rem;
+            color: #322c26;
+        }
+
+        .note-area .a {
+            font-size: 0.9rem;
+            color: #5b5046;
+            margin-top: 0.2rem;
+        }
+
+        .note-area .a a {
+            color: #7f6e5b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4b7a8;
+            font-weight: 400;
+        }
+
+        .note-area .a a:hover {
+            color: #3d352e;
+            text-decoration-color: #3d352e;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            border-top: 1px solid #d9d3cb;
+            padding-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #6f6457;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .footer-note .ref {
+            max-width: 70%;
+        }
+
+        .footer-note .ref a {
+            color: #7f6e5b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4b7a8;
+        }
+
+        .footer-note .ref a:hover {
+            color: #3d352e;
+            text-decoration-color: #3d352e;
+        }
+
+        .footer-note .small {
+            font-size: 0.75rem;
+            color: #a89b8e;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.6rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .backdrop,
+            .note-area {
+                padding: 1.2rem 1.2rem;
+            }
+            .intro-item {
+                padding-left: 0.8rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+            .footer-note .ref {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <div class="label">杂志 · 专题</div>
+        <h1>斗地主<br>日常对照与延伸</h1>
+        <div class="sub">一副牌里的逻辑、习惯与闲时观察</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="backdrop">
+        <h2>从一局牌说起</h2>
+        <p>许多人最初接触斗地主，是因为聚会、通勤或线上短对局。它的规则简单到可以用一分钟讲完，但背后的牌型组合、概率估算和临场判断，又足以让不同阶段的玩家反复琢磨。本页围绕日常查询与对照的视角，整理一些值得留意的细节和延伸信息，不做技术分析，也不鼓吹胜负，只当作一种温和的阅读素材。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="intro-grid">
+        <div class="intro-item">
+            <span class="num">01</span>
+            <h3>牌型与习惯对照</h3>
+            <p>单张、对子、三带、顺子……这些基础牌型是每一次出牌的单元。但在实际对局里，人们往往会在手里留下某些固定组合，比如保留一对2或一张王，作为后手调整的缓冲。了解常见的牌型分布，能帮助你在复盘时更快理解自己的出牌顺序是否合理，也是一种朴素的逻辑训练。</p>
+        </div>
+        <div class="intro-item">
+            <span class="num">02</span>
+            <h3>记牌与节奏感</h3>
+            <p>不少人把记牌当作一种技巧，其实它更像一种注意力分配的习惯。试着在每轮出牌后留意剩余的大牌和关键牌型，不必强求记住每一张，但逐渐会形成对局面的「体感」。节奏感则体现在叫分、抢地主和出牌速度上——有时候慢一拍反而是思考的体现，这与日常做决策时的权衡有相似之处。</p>
+        </div>
+        <div class="intro-item">
+            <span class="num">03</span>
+            <h3>延伸阅读：规则之外</h3>
+            <p>斗地主的变体规则在不同地区略有差异，比如部分玩法加入“癞子”或“万能牌”，让牌局变化更多。此外，一些数学爱好者曾用排列组合计算特定牌型的出现概率，这类内容虽然偏理论，但对于喜欢深究的人来说，不失为一种有趣的思维体操。如果你只想随手翻翻规则和常见问题，可以直接查阅 <a href="https://official-doudizhu.com">斗地主</a> 的相关说明，那里整理了比较清晰的条目。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 · 提示 · 混合 -->
+    <div class="note-area">
+        <div class="note-title"><span></span> 常见查询摘要 <span></span></div>
+        <div class="faq-item">
+            <div class="q">—— 顺子最少需要几张？</div>
+            <div class="a">五张连续的单牌（3-7 为最小顺子，10-A 为最大顺子）。2 和王不能加入顺子。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">—— 炸弹可以拆开吗？</div>
+            <div class="a">在标准规则中，四张相同的牌视为炸弹，不能拆成两张对子或三带一使用。部分地区有变体，但多数通用规则保留炸弹的完整性。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">—— 叫地主时有什么参考？</div>
+            <div class="a">通常根据手牌中 2 和王的数量、是否有炸弹、牌型是否整齐来判断。但叫分也包含心理成分，不是绝对公式。</div>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <div class="ref">
+            <span>更多基础规则、牌型示例和常见疑问，</span>
+            <span>可参考 <a href="https://official-doudizhu.com">斗地主</a> 的整理页面。</span>
+        </div>
+        <div class="small">日常·对照·延伸</div>
+    </div>
+</div>
+</body>
+</html>
